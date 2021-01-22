@@ -5,5 +5,11 @@ from Writer.excelWriter import ExcelWriter
 logParser = LogParser(path="/Users/admin/Desktop/extractMkmd.csv",
                       log_col_header="message")
 logParser.parse_log()
-ExcelWriter.df_to_excel(logParser.concat_results())
 
+df_matched_input, df_matched_output, df_unmatched_input = logParser.concat_results("internal_id")
+
+df_matched_input = logParser.enrich_data(df_matched_input)
+df_matched_output = logParser.enrich_data(df_matched_output)
+df_unmatched_input = logParser.enrich_data(df_unmatched_input)
+
+ExcelWriter.df_to_excel(df_matched_input, df_matched_output, df_unmatched_input)
