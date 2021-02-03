@@ -5,7 +5,9 @@ Today :
   The parser isn't standard for the moment.
 
   It can parse :
+  
     - Datadog CSV Extract 
+    
     - Datadog Excel Extract
   
   The application automatically detect the file format and choose it behavior to parse it.
